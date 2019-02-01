@@ -2,34 +2,11 @@
 
 {% block css %}
 <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='css/index.css')}}">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU"
+    crossorigin="anonymous">
 {% endblock %}
 
 {% block body %}
-<nav class="navbar navbar-expand-sm navbar-dark bg-dark sticky-top">
-    <div class="container">
-        <a href="#" class="navbar-brand"><span>NZGS Field Description</span></a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav mr-auto">
-                <li class="nav-item active">
-                    <a class="nav-link" href="#">Order of Terms <span class="sr-only">(current)</span></a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="{{ url_for('index') + 'field-guide' }}">Field Guide Sheet</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="{{ url_for('index') + 'field-description' }}">Field Description Guideline</a>
-                </li>
-            </ul>
-        </div>
-
-    </div>
-</nav>
-
 <div class="container py-3">
     <div class="row">
         <div class="col">
@@ -66,7 +43,35 @@
     </div>
     <div class="form-group">
         <div class="form-row">
+            <div class="col-sm-2"></div>
+            <div class="col-sm-4">
+                <select class="form-control form-control-sm">
+                    <option value=""></option>
+                    <option value="fine">fine</option>
+                    <option value="fine to medium">fine to medium</option>
+                    <option value="fine to coarse">fine to coarse</option>
+                    <option value="medium">medium</option>
+                    <option value="medium to coarse">medium to coarse</option>
+                    <option value="coarse">coarse</option>
+                </select>
+            </div>
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="form-row">
             <div class="col-sm-2">Minor Fraction</div>
+            <div class="col-sm-4">
+                <select class="form-control form-control-sm">
+                    <option value=""></option>
+                    <option value="with some">with some</option>
+                    <option value="with minor">with minor</option>
+                </select>
+            </div>
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="form-row">
+            <div class="col-sm-2"></div>
             <div class="col-sm-4">
                 <select class="form-control form-control-sm">
                     <option value=""></option>
@@ -129,7 +134,8 @@
     </div>
     <div class="form-group">
         <div class="form-row">
-            <div class="col-sm-2">Structure</div>
+            <div class="col-sm-2">Structure <i class="fa fa-info-circle" data-toggle="collapse" data-target="#structure-collapse"
+                    aria-hidden="true"></i></div>
             <div class="col-sm-4">
                 <select class="form-control form-control-sm">
                     <option value=""></option>
@@ -144,6 +150,48 @@
             </div>
         </div>
     </div>
+    <div class="form-group collapse" id="structure-collapse">
+        <div class="form-row">
+            <div class="col-sm-2"></div>
+            <div class="col-sm-4">
+                <table class="table table-sm table-hover table-condensed">
+                    <tr>
+                        <th>Term</th>
+                        <th>Description</th>
+                    </tr>
+                    <tr>
+                        <td>Homogeneous</td>
+                        <td>The total lack of visible bedding and the same colour and appearance throughout</td>
+                    </tr>
+                    <tr>
+                        <td>Bedding</td>
+                        <td>The presence of layers</td>
+                    </tr>
+                    <tr>
+                        <td>Fissured</td>
+                        <td>Breaks along defi nite planes of fracture with little resistance to fracturing</td>
+                    </tr>
+                    <tr>
+                        <td>Polished</td>
+                        <td>Fracture planes are polished or glossy</td>
+                    </tr>
+                    <tr>
+                        <td>Slickensided</td>
+                        <td>Fracture planes are striated</td>
+                    </tr>
+                    <tr>
+                        <td>Blocky</td>
+                        <td>Cohesive soil that can be broken down into small angular lumps which resist further
+                            breakdown</td>
+                    </tr>
+                    <tr>
+                        <td>Lensoidal</td>
+                        <td>Discontinuous pockets of a soil within a different soil mass</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
     <div class="row">
         <div class="col">
             <p class="lead">Qualifying Paragraph</p>
@@ -151,7 +199,8 @@
     </div>
     <div class="form-group">
         <div class="form-row">
-            <div class="col-sm-2">Strength</div>
+            <div class="col-sm-2">Strength <i class="fa fa-info-circle" data-toggle="collapse" data-target="#strength-collapse"
+                    aria-hidden="true"></i></div>
             <div class="col-sm-4">
                 <select class="form-control form-control-sm">
                     <option value=""></option>
@@ -162,6 +211,120 @@
                     <option value="Very stiff">Very stiff</option>
                     <option value="Hard">Hard</option>
                 </select>
+            </div>
+        </div>
+    </div>
+    <div class="form-group collapse" id="strength-collapse">
+        <div class="form-row">
+            <div class="col-sm-2"></div>
+            <div class="col-sm-4">
+                <table class="table table-sm table-hover table-condensed">
+                    <tr>
+                        <th>Descriptive Term</th>
+                        <th>Undrained Shear Strength (kPa)</th>
+                        <th>Diagnostic Features</th>
+                    </tr>
+                    <tr>
+                        <td>Very soft</td>
+                        <td>12</td>
+                        <td>Easily exudes between fingers when squeezed</td>
+                    </tr>
+                    <tr>
+                        <td>Soft</td>
+                        <td>12 – 25</td>
+                        <td>Easily indented by fingers</td>
+                    </tr>
+                    <tr>
+                        <td>Firm</td>
+                        <td>25 – 50</td>
+                        <td>Indented by strong finger pressure and can be indented by thumb pressure</td>
+                    </tr>
+                    <tr>
+                        <td>Stiff</td>
+                        <td>50 – 100</td>
+                        <td>Cannot be indented by thumb pressure</td>
+                    </tr>
+                    <tr>
+                        <td>Very stiff</td>
+                        <td>100 – 200</td>
+                        <td>Can be indented by thumb nail</td>
+                    </tr>
+                    <tr>
+                        <td>Hard</td>
+                        <td>200 – 500</td>
+                        <td>Difficult to indent by thumb nail</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="form-row">
+            <div class="col-sm-2">Strength2 <i class="fa fa-info-circle" data-toggle="collapse" data-target="#strength2-collapse"
+                    aria-hidden="true"></i></div>
+            <div class="col-sm-4">
+                <select class="form-control form-control-sm">
+                    <option value=""></option>
+                    <option value="Very dense">Very dense</option>
+                    <option value="Dense">Dense</option>
+                    <option value="Medium dense">Medium dense</option>
+                    <option value="Loose">Loose</option>
+                    <option value="Very loose">Very loose</option>                    
+                </select>
+            </div>
+        </div>
+    </div>
+    <div class="form-group collapse" id="strength2-collapse">
+        <div class="form-row">
+            <div class="col-sm-2"></div>
+            <div class="col-sm-4">
+                <table class="table table-sm table-hover table-condensed">
+                    <tr>
+                        <th>Descriptive Term</th>
+                        <th>Density Index (RD)</th>
+                        <th>SPT N-value (blows/300 mm)</th>
+                        <th>Dynamic Cone (blows/100 mm)</th>
+                    </tr>
+                    <tr>
+                        <td>Very dense</td>
+                        <td>> 85</td>
+                        <td>> 50</td>
+                        <td>> 17</td>
+                    </tr>
+                    <tr>
+                        <td>Dense</td>
+                        <td>65 – 85</td>
+                        <td>30 – 50</td>
+                        <td>7 – 17</td>
+                    </tr>
+                    <tr>
+                        <td>Medium dense</td>
+                        <td>35 – 65</td>
+                        <td>10 – 30</td>
+                        <td>3 – 7</td>
+                    </tr>
+                    <tr>
+                        <td>Loose</td>
+                        <td>15 – 35</td>
+                        <td>4 – 10</td>
+                        <td>1 – 3</td>
+                    </tr>
+                    <tr>
+                        <td>Very loose</td>
+                        <td>< 15</td>
+                        <td>< 4</td>
+                        <td>0 – 2</td>
+                    </tr>
+                    <tr>
+                        <td colspan="4">
+                            <b>Note</b>
+                            <ul>
+                                <li>No correlation is implied between Standard Penetration Test (SPT) and Dynamic Cone Penetrometer Test values.</li>
+                                <li>The SPT “N” values are uncorrected.</li>
+                            </ul>
+                        </td>
+                    </tr>
+                </table>
             </div>
         </div>
     </div>
@@ -206,7 +369,7 @@
                     <option value="Moderately thin">Moderately thin</option>
                     <option value="Moderately thick">Moderately thick</option>
                     <option value="Thick">Thick</option>
-                    <option value="Very thick">Very thick</option>                    
+                    <option value="Very thick">Very thick</option>
                 </select>
             </div>
         </div>

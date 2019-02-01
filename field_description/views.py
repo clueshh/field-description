@@ -6,17 +6,17 @@ from flask import render_template, redirect, url_for
 # Homepage
 @app.route('/')
 def index():
-    return render_template('index.html')
+    return render_template('index.html', page=1)
 
 
-@app.route('/<string:page_name>/')
-def render_static(page_name):
-    return render_template('%s.html' % page_name, page_name=page_name)
+@app.route('/field-guide/')
+def field_guide():
+    return render_template('field-pdf.html', page=2, page_name="field-guide")
 
 
-# @app.route('/guidelines')
-# def guidelines():
-#     return render_template('guidelines.html')
+@app.route('/field-description/')
+def field_description():
+    return render_template('field-pdf.html', page=3, page_name="field-description")
 
 
 @app.errorhandler(404)

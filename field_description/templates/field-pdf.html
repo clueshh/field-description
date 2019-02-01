@@ -1,0 +1,16 @@
+{% extends "layout.html" %} 
+
+{% block css %}
+<link rel="stylesheet" type="text/css" href="{{url_for('static', filename='css/field-pdf.css')}}">
+{% endblock %}
+
+{% block body %}
+<div class="container-fluid">
+    <div class="row" id="pdf_container" data-pdf="{{ page_name }}">
+</div>
+{% endblock %}
+
+{% block script %}
+<script src="{{url_for('static',filename='vendor/pdfobject/pdfobject.min.js')}}"></script>
+<script src="{{url_for('static',filename='js/field-pdf.js')}}"></script>
+{% endblock %}

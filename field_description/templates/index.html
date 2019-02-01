@@ -13,6 +13,9 @@
             <p class="lead">Main paragraph</p>
         </div>
     </div>
+    <div class="col">
+
+    </div>
     <div class="form-group">
         <div class="form-row">
             <div class="col-sm-2">Subordinate fraction</div>
@@ -31,7 +34,7 @@
         <div class="form-row">
             <div class="col-sm-2">Major Fraction</div>
             <div class="col-sm-4">
-                <select class="form-control form-control-sm">
+                <select class="form-control form-control-sm" id="select_major_fraction">
                     <option value=""></option>
                     <option value="CLAY">CLAY</option>
                     <option value="SILT">SILT</option>
@@ -45,7 +48,7 @@
         <div class="form-row">
             <div class="col-sm-2"></div>
             <div class="col-sm-4">
-                <select class="form-control form-control-sm">
+                <select class="form-control form-control-sm" id="select_behaviour">
                     <option value=""></option>
                     <option value="fine">fine</option>
                     <option value="fine to medium">fine to medium</option>
@@ -71,7 +74,23 @@
     </div>
     <div class="form-group">
         <div class="form-row">
-            <div class="col-sm-2"></div>
+            <div class="col-sm-2 text-right">
+                <i class="fas fa-plus" data-toggle="collapse" data-target="#minor-collapse" aria-hidden="true"></i>
+            </div>
+            <div class="col-sm-4">
+                <select class="form-control form-control-sm">
+                    <option value=""></option>
+                    <option value="clay">clay</option>
+                    <option value="silt">silt</option>
+                    <option value="sand">sand</option>
+                    <option value="gravel">gravel</option>
+                </select>
+            </div>
+        </div>
+    </div>
+    <div class="form-group collapse" id="minor-collapse">
+        <div class="form-row">
+            <div class="col-sm-2 text-right">and</div>
             <div class="col-sm-4">
                 <select class="form-control form-control-sm">
                     <option value=""></option>
@@ -134,8 +153,14 @@
     </div>
     <div class="form-group">
         <div class="form-row">
-            <div class="col-sm-2">Structure <i class="fa fa-info-circle" data-toggle="collapse" data-target="#structure-collapse"
-                    aria-hidden="true"></i></div>
+            <div class="col-sm-2 d-flex">
+                <div>
+                    Structure
+                </div>
+                <div class="ml-auto">
+                    <i class="fa fa-info-circle" data-toggle="collapse" data-target="#structure-collapse" aria-hidden="true"></i>
+                </div>
+            </div>
             <div class="col-sm-4">
                 <select class="form-control form-control-sm">
                     <option value=""></option>
@@ -199,8 +224,14 @@
     </div>
     <div class="form-group">
         <div class="form-row">
-            <div class="col-sm-2">Strength <i class="fa fa-info-circle" data-toggle="collapse" data-target="#strength-collapse"
-                    aria-hidden="true"></i></div>
+            <div class="col-sm-2 d-flex">
+                <div>
+                    Strength
+                </div>
+                <div class="ml-auto">
+                    <i class="fa fa-info-circle" data-toggle="collapse" data-target="#strength-collapse" aria-hidden="true"></i>
+                </div>
+            </div>
             <div class="col-sm-4">
                 <select class="form-control form-control-sm">
                     <option value=""></option>
@@ -260,8 +291,14 @@
     </div>
     <div class="form-group">
         <div class="form-row">
-            <div class="col-sm-2">Strength2 <i class="fa fa-info-circle" data-toggle="collapse" data-target="#strength2-collapse"
-                    aria-hidden="true"></i></div>
+            <div class="col-sm-2 d-flex">
+                <div>
+                    Strength2
+                </div>
+                <div class="ml-auto">
+                    <i class="fa fa-info-circle" data-toggle="collapse" data-target="#strength2-collapse" aria-hidden="true"></i>
+                </div>
+            </div>
             <div class="col-sm-4">
                 <select class="form-control form-control-sm">
                     <option value=""></option>
@@ -269,7 +306,7 @@
                     <option value="Dense">Dense</option>
                     <option value="Medium dense">Medium dense</option>
                     <option value="Loose">Loose</option>
-                    <option value="Very loose">Very loose</option>                    
+                    <option value="Very loose">Very loose</option>
                 </select>
             </div>
         </div>
@@ -319,7 +356,8 @@
                         <td colspan="4">
                             <b>Note</b>
                             <ul>
-                                <li>No correlation is implied between Standard Penetration Test (SPT) and Dynamic Cone Penetrometer Test values.</li>
+                                <li>No correlation is implied between Standard Penetration Test (SPT) and Dynamic Cone
+                                    Penetrometer Test values.</li>
                                 <li>The SPT “N” values are uncorrected.</li>
                             </ul>
                         </td>
@@ -330,7 +368,12 @@
     </div>
     <div class="form-group">
         <div class="form-row">
-            <div class="col-sm-2">Moisture Condition</div>
+            <div class="col-sm-2 d-flex">
+                <div>Moisture Condition</div>
+                <div class="ml-auto">
+                    <i class="fa fa-info-circle" data-toggle="collapse" data-target="#moisture-collapse" aria-hidden="true"></i>
+                </div>
+            </div>
             <div class="col-sm-4">
                 <select class="form-control form-control-sm">
                     <option value=""></option>
@@ -342,6 +385,43 @@
             </div>
         </div>
     </div>
+
+    <div class="form-group collapse" id="moisture-collapse">
+        <div class="form-row">
+            <div class="col-sm-2"></div>
+            <div class="col-sm-4">
+                <table class="table table-sm table-hover table-condensed">
+                    <tr>
+                        <th>Condition</th>
+                        <th>Description</th>
+                        <th>Granular Soils</th>
+                        <th>Cohesive Soils</th>
+                    </tr>
+                    <tr>
+                        <td>Dry</td>
+                        <td>Looks and feels dry</td>
+                        <td>Run freely through hands</td>
+                        <td>Hard, powdery or friable</td>
+                    </tr>
+                    <tr>
+                        <td>Moist</td>
+                        <td rowspan="2">Feels cool, darkened in colour</td>
+                        <td rowspan="2">Tend to cohere</td>
+                        <td>Weakened by moisture, but no free water on hands when remoulding</td>
+                    </tr>
+                    <tr>
+                        <td>Wet</td>
+                        <td>Weakened by moisture, free water forms on hands when handling</td>
+                    </tr>
+                    <tr>
+                        <td>Saturated</td>
+                        <td colspan="3">Feels cool, darkened in colour and free water is present on the sample</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+
     <div class="form-group">
         <div class="form-row">
             <div class="col-sm-2">Grading</div>
@@ -356,9 +436,75 @@
             </div>
         </div>
     </div>
+
     <div class="form-group">
         <div class="form-row">
-            <div class="col-sm-2">Bedding</div>
+            <div class="col-sm-2 d-flex">
+                <div>Bedding</div>
+                <div class="ml-auto">
+                    <i class="fa fa-info-circle" data-toggle="collapse" data-target="#bedding-collapse" aria-hidden="true"></i>
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <select class="form-control form-control-sm">
+                    <option value=""></option>
+                    <option value="Sub-horizontal">Sub-horizontal</option>
+                    <option value="Gently inclined">Gently inclined</option>
+                    <option value="Moderately inclined">Moderately inclined</option>
+                    <option value="Steeply inclined">Steeply inclined</option>
+                    <option value="Very steeply inclined">Very steeply inclined</option>
+                    <option value="Sub-vertical">Sub-vertical</option>
+                </select>
+            </div>
+        </div>
+    </div>
+
+    <div class="form-group collapse" id="bedding-collapse">
+        <div class="form-row">
+            <div class="col-sm-2"></div>
+            <div class="col-sm-4">
+                <table class="table table-sm table-hover table-condensed">
+                    <tr>
+                        <th>Term</th>
+                        <th>Inclination (degrees from the horizontal)</th>
+                    </tr>
+                    <tr>
+                        <td>Sub-horizontal</td>
+                        <td>0 – 5</td>
+                    </tr>
+                    <tr>
+                        <td>Gently inclined</td>
+                        <td>6 – 15</td>
+                    </tr>
+                    <tr>
+                        <td>Moderately inclined</td>
+                        <td>16 – 30</td>
+                    </tr>
+                    <tr>
+                        <td>Steeply inclined</td>
+                        <td>31 – 60</td>
+                    </tr>
+                    <tr>
+                        <td>Very steeply inclined</td>
+                        <td>61 – 80</td>
+                    </tr>
+                    <tr>
+                        <td>Sub-vertical</td>
+                        <td>81 – 90</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="form-row">
+            <div class="col-sm-2 d-flex">
+                <div></div>
+                <div class="ml-auto">
+                    <i class="fa fa-info-circle" data-toggle="collapse" data-target="#bedding2-collapse" aria-hidden="true"></i>
+                </div>
+            </div>
             <div class="col-sm-4">
                 <select class="form-control form-control-sm">
                     <option value=""></option>
@@ -375,6 +521,126 @@
         </div>
     </div>
 
+    <div class="form-group collapse" id="bedding2-collapse">
+        <div class="form-row">
+            <div class="col-sm-2"></div>
+            <div class="col-sm-4">
+                <table class="table table-sm table-hover table-condensed">
+                    <tr>
+                        <th>Term</th>
+                        <th>Bed Thickness</th>
+                    </tr>
+                    <tr>
+                        <td>Thinly laminated</td>
+                        <td>< 2 mm</td>
+                    </tr>
+                    <tr>
+                        <td>Laminated</td>
+                        <td>2 mm – 6 mm</td>
+                    </tr>
+                    <tr>
+                        <td>Very thin</td>
+                        <td>6 mm – 20 mm</td>
+                    </tr>
+                    <tr>
+                        <td>Thin</td>
+                        <td>20 mm – 60 mm</td>
+                    </tr>
+                    <tr>
+                        <td>Moderately thin</td>
+                        <td>60 mm – 200 mm</td>
+                    </tr>
+                    <tr>
+                        <td>Moderately thick</td>
+                        <td>0.2 m – 0.6 m</td>
+                    </tr>
+                    <tr>
+                        <td>Thick</td>
+                        <td>0.6 m – 2 m</td>
+                    </tr>
+                    <tr>
+                        <td>Very thick</td>
+                        <td>> 2 m</td>
+                    </tr>
+
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="form-row">
+            <div class="col-sm-2">Plasticity</div>
+            <div class="col-sm-4">
+                <select class="form-control form-control-sm">
+                    <option value=""></option>
+                    <option value="low plasticity">low plasticity</option>
+                    <option value="moderately plastic">moderately plastic</option>
+                    <option value="high plasticity">high plasticity</option>
+                </select>
+            </div>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="form-row">
+            <div class="col-sm-2 d-flex">
+                <div>Sensitivity</div>
+                <div class="ml-auto">
+                    <i class="fa fa-info-circle" data-toggle="collapse" data-target="#sensitivity-collapse" aria-hidden="true"></i>
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <select class="form-control form-control-sm">
+                    <option value=""></option>
+                    <option value="Insensitive, normal">Insensitive, normal</option>
+                    <option value="Moderately sensitive">Moderately sensitive</option>
+                    <option value="Sensitive">Sensitive</option>
+                    <option value="Extra sensitive">Extra sensitive</option>
+                    <option value="Quick">Quick</option>
+                </select>
+            </div>
+        </div>
+    </div>
+
+    <div class="form-group collapse" id="sensitivity-collapse">
+        <div class="form-row">
+            <div class="col-sm-2"></div>
+            <div class="col-sm-4">
+                <table class="table table-sm table-hover table-condensed">
+                    <tr>
+                        <th>Descriptive Term</th>
+                        <th>Shear Strength Ratio - undisturbed/remoulded</th>
+                    </tr>
+                    <tr>
+                        <td>Insensitive, normal</td>
+                        <td>< 2</td>
+                    </tr>
+                    <tr>
+                        <td>Moderately sensitive</td>
+                        <td>2 – 4</td>
+                    </tr>
+                    <tr>
+                        <td>Sensitive</td>
+                        <td>4 – 8</td>
+                    </tr>
+                    <tr>
+                        <td>Extra sensitive</td>
+                        <td>8 – 16</td>
+                    </tr>
+                    <tr>
+                        <td>Quick</td>
+                        <td>> 16</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+
 </div>
 
+{% endblock %}
+
+{% block script %}
+<script src="{{url_for('static',filename='js/index.js')}}"></script>
 {% endblock %}

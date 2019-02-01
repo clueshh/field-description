@@ -1,0 +1,217 @@
+{% extends "layout.html" %}
+
+{% block css %}
+<link rel="stylesheet" type="text/css" href="{{url_for('static', filename='css/index.css')}}">
+{% endblock %}
+
+{% block body %}
+<nav class="navbar navbar-expand-sm navbar-dark bg-dark sticky-top">
+    <div class="container">
+        <a href="#" class="navbar-brand"><span>NZGS Field Description</span></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">Order of Terms <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('index') + 'field-guide' }}">Field Guide Sheet</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('index') + 'field-description' }}">Field Description Guideline</a>
+                </li>
+            </ul>
+        </div>
+
+    </div>
+</nav>
+
+<div class="container py-3">
+    <div class="row">
+        <div class="col">
+            <p class="lead">Main paragraph</p>
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="form-row">
+            <div class="col-sm-2">Subordinate fraction</div>
+            <div class="col-sm-4">
+                <select class="form-control form-control-sm">
+                    <option value=""></option>
+                    <option value="clayey">clayey</option>
+                    <option value="silty">silty</option>
+                    <option value="sandy">sandy</option>
+                    <option value="gravelly">gravelly</option>
+                </select>
+            </div>
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="form-row">
+            <div class="col-sm-2">Major Fraction</div>
+            <div class="col-sm-4">
+                <select class="form-control form-control-sm">
+                    <option value=""></option>
+                    <option value="CLAY">CLAY</option>
+                    <option value="SILT">SILT</option>
+                    <option value="SAND">SAND</option>
+                    <option value="GRAVEL">GRAVEL</option>
+                </select>
+            </div>
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="form-row">
+            <div class="col-sm-2">Minor Fraction</div>
+            <div class="col-sm-4">
+                <select class="form-control form-control-sm">
+                    <option value=""></option>
+                    <option value="clay">clay</option>
+                    <option value="silt">silt</option>
+                    <option value="sand">sand</option>
+                    <option value="gravel">gravel</option>
+                </select>
+            </div>
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="form-row">
+            <div class="col-sm-2">Colour</div>
+            <div class="col-sm-4">
+                <select class="form-control form-control-sm">
+                    <option value=""></option>
+                    <option value="light">light</option>
+                    <option value="light">dark</option>
+                </select>
+            </div>
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="form-row">
+            <div class="col-sm-2"></div>
+            <div class="col-sm-4">
+                <select class="form-control form-control-sm">
+                    <option value=""></option>
+                    <option value="pinkish">pinkish</option>
+                    <option value="reddish">reddish</option>
+                    <option value="yellowish">yellowish</option>
+                    <option value="brownish">brownish</option>
+                    <option value="greenish">greenish</option>
+                    <option value="bluish">bluish</option>
+                    <option value="greyish">greyish</option>
+                </select>
+            </div>
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="form-row">
+            <div class="col-sm-2"></div>
+            <div class="col-sm-4">
+                <select class="form-control form-control-sm">
+                    <option value=""></option>
+                    <option value="pink">pink</option>
+                    <option value="red">red</option>
+                    <option value="orange">orange</option>
+                    <option value="yellow">yellow</option>
+                    <option value="brown">brown</option>
+                    <option value="green">green</option>
+                    <option value="blue">blue</option>
+                    <option value="white">white</option>
+                    <option value="grey">grey</option>
+                    <option value="black">black</option>
+                </select>
+            </div>
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="form-row">
+            <div class="col-sm-2">Structure</div>
+            <div class="col-sm-4">
+                <select class="form-control form-control-sm">
+                    <option value=""></option>
+                    <option value="Homogeneous">Homogeneous</option>
+                    <option value="Bedding">Bedding</option>
+                    <option value="Fissured">Fissured</option>
+                    <option value="Polished">Polished</option>
+                    <option value="Slickensided">Slickensided</option>
+                    <option value="Blocky">Blocky</option>
+                    <option value="Lensoidal">Lensoidal</option>
+                </select>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <p class="lead">Qualifying Paragraph</p>
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="form-row">
+            <div class="col-sm-2">Strength</div>
+            <div class="col-sm-4">
+                <select class="form-control form-control-sm">
+                    <option value=""></option>
+                    <option value="Very soft">Very soft</option>
+                    <option value="Soft">Soft</option>
+                    <option value="Firm">Firm</option>
+                    <option value="Stiff">Stiff</option>
+                    <option value="Very stiff">Very stiff</option>
+                    <option value="Hard">Hard</option>
+                </select>
+            </div>
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="form-row">
+            <div class="col-sm-2">Moisture Condition</div>
+            <div class="col-sm-4">
+                <select class="form-control form-control-sm">
+                    <option value=""></option>
+                    <option value="Dry">Dry</option>
+                    <option value="Moist">Moist</option>
+                    <option value="Wet">Wet</option>
+                    <option value="Saturated">Saturated</option>
+                </select>
+            </div>
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="form-row">
+            <div class="col-sm-2">Grading</div>
+            <div class="col-sm-4">
+                <select class="form-control form-control-sm">
+                    <option value=""></option>
+                    <option value="well graded">well graded</option>
+                    <option value="poorly graded">poorly graded</option>
+                    <option value="uniformly graded">uniformly graded</option>
+                    <option value="gap graded">gap graded</option>
+                </select>
+            </div>
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="form-row">
+            <div class="col-sm-2">Bedding</div>
+            <div class="col-sm-4">
+                <select class="form-control form-control-sm">
+                    <option value=""></option>
+                    <option value="Thinly laminated">Thinly laminated</option>
+                    <option value="Laminated">Laminated</option>
+                    <option value="Very thin">Very thin</option>
+                    <option value="Thin">Thin</option>
+                    <option value="Moderately thin">Moderately thin</option>
+                    <option value="Moderately thick">Moderately thick</option>
+                    <option value="Thick">Thick</option>
+                    <option value="Very thick">Very thick</option>                    
+                </select>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+{% endblock %}

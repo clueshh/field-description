@@ -19,7 +19,7 @@
                 <div class="form-row">
                     <div class="col-sm-4">Subordinate fraction</div>
                     <div class="col-sm-8">
-                        <select class="form-control form-control-sm">
+                        <select class="form-control form-control-sm" id="select_subordinate_fraction">
                             <option value=""></option>
                             <option value="clayey">clayey</option>
                             <option value="silty">silty</option>
@@ -69,7 +69,7 @@
                 <div class="form-row">
                     <div class="col-sm-4"></div>
                     <div class="col-sm-8">
-                        <img src="{{url_for('static', filename='img/grain size.png')}}" style="width: 100%;">
+                        <a href="{{url_for('static', filename='img/grain size.png')}}" target="_blank"><img src="{{url_for('static', filename='img/grain size.png')}}" style="width: 100%;"></a>
                     </div>
                 </div>
             </div>

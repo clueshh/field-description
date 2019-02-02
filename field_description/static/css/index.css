@@ -9,3 +9,17 @@ body {
 .table-condensed{
   font-size: 0.8rem;
 }
+
+.asterisk{
+  font-size: 50%; 
+  vertical-align: top; 
+  color: Salmon
+}
+
+.plus, .minus{
+  font-size: 80%; 
+}
+
+i#minor_fraction_plus {
+  padding-right: 4px;
+}

@@ -23,3 +23,7 @@ body {
 i#minor_fraction_plus {
   padding-right: 4px;
 }
+
+button.btn.btn-light.btn-sm {
+  border: 1px solid #ced4da
+}

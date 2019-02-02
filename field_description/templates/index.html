@@ -75,15 +75,11 @@
             </div>
             <div class="form-group">
                 <div class="form-row">
-                    <div class="col-sm-4 d-flex">
-                        <div>Minor Fraction</div>
-                        <div class="ml-auto">
-                            <i class="fas fa-plus plus" id="minor_fraction_plus" data-toggle="collapse" data-target="#minor-collapse"
-                                aria-hidden="true"></i>
-                        </div>
+                    <div class="col-sm-4">
+                        Minor Fraction
                     </div>
                     <div class="col-sm-8">
-                        <select class="form-control form-control-sm">
+                        <select class="form-control form-control-sm" id="select_minor_fraction_with">
                             <option value=""></option>
                             <option value="with some">with some</option>
                             <option value="with minor">with minor</option>
@@ -94,40 +90,33 @@
             </div>
             <div class="form-group">
                 <div class="form-row">
-                    <div class="col-sm-4">
+                    <div class="col-sm-4 d-flex">
+                        <div class="ml-auto">
+                            <i class="fa fa-info-circle" data-toggle="collapse" data-target="#minor-collapse"
+                                aria-hidden="true"></i>
+                        </div>
                     </div>
                     <div class="col-sm-8">
-                        <select class="form-control form-control-sm" id="select_minor_fraction1">
-                            <option value=""></option>
-                            <option value="clay">clay</option>
-                            <option value="silt">silt</option>
-                            <option value="sand">sand</option>
-                            <option value="gravel">gravel</option>
-                        </select>
+                        <input class="form-control form-control-sm" type="text" id="select_minor_fraction1">
                     </div>
                 </div>
             </div>
             <div class="form-group collapse" id="minor-collapse">
                 <div class="form-row">
-                    <div class="col-sm-4 d-flex">
-                        <div class="ml-auto">and</div>
-                    </div>
+                    <div class="col-sm-4"></div>
                     <div class="col-sm-8">
-                        <select class="form-control form-control-sm" id="select_minor_fraction2" disabled>
-                            <option value=""></option>
-                            <option value="clay">clay</option>
-                            <option value="silt">silt</option>
-                            <option value="sand">sand</option>
-                            <option value="gravel">gravel</option>
-                        </select>
+                        <div class="table-condensed">
+                            <!-- <b>Minor Fraction</b> -->
+                            <b>eg:</b> with minor <i><u>silt and clay</u></i>
+                        </div>
                     </div>
                 </div>
             </div>
             <div class="form-group">
                 <div class="form-row">
-                    <div class="col-sm-4">Colour <i class="fas fa-asterisk asterisk"></i></div>
+                    <div class="col-sm-4">Colour</div>
                     <div class="col-sm-8">
-                        <select class="form-control form-control-sm">
+                        <select class="form-control form-control-sm" id="select_color1">
                             <option value=""></option>
                             <option value="light">light</option>
                             <option value="light">dark</option>
@@ -139,7 +128,7 @@
                 <div class="form-row">
                     <div class="col-sm-4"></div>
                     <div class="col-sm-8">
-                        <select class="form-control form-control-sm">
+                        <select class="form-control form-control-sm" id="select_color2">
                             <option value=""></option>
                             <option value="pinkish">pinkish</option>
                             <option value="reddish">reddish</option>
@@ -156,7 +145,41 @@
                 <div class="form-row">
                     <div class="col-sm-4"></div>
                     <div class="col-sm-8">
-                        <select class="form-control form-control-sm">
+                        <select class="form-control form-control-sm" id="select_color3">
+                            <option value=""></option>
+                            <option value="pink">pink</option>
+                            <option value="red">red</option>
+                            <option value="orange">orange</option>
+                            <option value="yellow">yellow</option>
+                            <option value="brown">brown</option>
+                            <option value="green">green</option>
+                            <option value="blue">blue</option>
+                            <option value="white">white</option>
+                            <option value="grey">grey</option>
+                            <option value="black">black</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="form-row">
+                    <div class="col-sm-4">Distribution of Colour</div>
+                    <div class="col-sm-8">
+                        <select class="form-control form-control-sm" id="select_dist_colour1">
+                            <option value=""></option>
+                            <option value="mottled">mottled</option>
+                            <option value="banded">banded</option>
+                            <option value="mixed">mixed</option>
+                            <option value="banded">banded</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="form-row">
+                    <div class="col-sm-4"></div>
+                    <div class="col-sm-8">
+                        <select class="form-control form-control-sm" id="select_dist_colour2">
                             <option value=""></option>
                             <option value="pink">pink</option>
                             <option value="red">red</option>
@@ -184,7 +207,7 @@
                         </div>
                     </div>
                     <div class="col-sm-8">
-                        <select class="form-control form-control-sm">
+                        <select class="form-control form-control-sm" id="select_structure">
                             <option value=""></option>
                             <option value="Homogeneous">Homogeneous</option>
                             <option value="Bedding">Bedding</option>
@@ -258,7 +281,7 @@
                         </div>
                     </div>
                     <div class="col-sm-8">
-                        <select class="form-control form-control-sm">
+                        <select class="form-control form-control-sm" id="sel">
                             <option value=""></option>
                             <option value="Very soft">Very soft</option>
                             <option value="Soft">Soft</option>
@@ -694,8 +717,7 @@
                 <div class="form-row">
                     <div class="col-sm-4">Minor Fraction</div>
                     <div class="col-sm-8">
-                        <input class="form-control form-control-sm" type="text" id="input_minor_fraction" value=""
-                            readonly>
+                        <input class="form-control form-control-sm" type="text" id="input_minor_fraction" value="" readonly>
                     </div>
                 </div>
             </div>
@@ -713,8 +735,15 @@
         </div>
     </div>
     <div class="row">
-        <div class="col">
+        <div class="col-2">
             <p class="lead">Output</p>
+        </div>
+        <div class="col"></div>
+        <div class="col-2">
+            <div class="btn-group float-right" role="group">
+                <button type="button" class="btn btn-light btn-sm" id="recalc">Recalculate</button>
+                <button type="button" class="btn btn-light btn-sm" id="reset">Reset</button>
+            </div>
         </div>
     </div>
     <div class="form-group">
@@ -727,6 +756,6 @@
 {% endblock %}
 
 {% block script %}
-<script src="{{url_for('static',filename='js/index.js')}}"></script>
 <script src="{{url_for('static',filename='js/parser.js')}}"></script>
+<script src="{{url_for('static',filename='js/index.js')}}"></script>
 {% endblock %}

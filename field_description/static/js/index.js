@@ -4,10 +4,10 @@ $("#select_major_fraction").change(function () {
 
     // show fine/medium/coarse input
     if (selected == "SILT" || selected == "CLAY" || selected == '') {
-        $("#form_behaviour").hide();
+        $("#select_behaviour").prop('disabled', true);
         $("#select_behaviour").val('');
     } else {
-        $("#form_behaviour").show();
+        $("#select_behaviour").prop('disabled', false);
     }
 
     $("#input_major_fraction").val(selected.toLowerCase())
@@ -30,13 +30,13 @@ function update() {
 
 // calls function to update text on form change
 $(".form-control").change(function () {
-    if ($(this).attr('id') != "output"){
+    if ($(this).attr('id') != "output") {
         update()
     }
 });
 
 // recalc button update
-$("#recalc").click(function(){
+$("#recalc").click(function () {
     update()
 });
 
@@ -49,3 +49,63 @@ function reset() {
 $("#reset").click(function () {
     reset()
 });
+
+// change Strength box
+function change_strength() {
+    var cohesiveOptions = {
+        "": "",
+        "Very soft": "Very soft",
+        "Soft": "Soft",
+        "Firm": "Firm",
+        "Very stiff": "Very stiff",
+        "Hard": "Hard"
+    };
+
+    var noncohesiveOptions = {
+        "": "",
+        "Very dense": "Very dense",
+        "Dense": "Dense",
+        "Medium dense": "Medium dense",
+        "Loose": "Loose",
+        "Very loose": "Very loose"
+    };
+
+    var selected = $("#select_major_fraction").find(":selected").text();
+    var $el = $("#select_strength1");
+    $el.empty(); // remove old options
+
+    if (selected == '') {
+        var options = {
+            "": ""
+        }
+
+        $("#info_strength").hide()
+        $('#strength-collapse').collapse("hide")
+        $('#strength2-collapse').collapse("hide")
+    } else {
+        if (selected == "SILT" || selected == "CLAY") {
+            var options = cohesiveOptions
+            $('#info_strength_collapse').attr('data-target','#strength-collapse');
+
+            if ($("#strength2-collapse").hasClass('show')) {
+                $('#strength2-collapse').collapse("hide")
+            }
+        } else {
+            var options = noncohesiveOptions
+            $('#info_strength_collapse').attr('data-target','#strength2-collapse');
+
+            if ($("#strength-collapse").hasClass('show')) {
+                $('#strength-collapse').collapse("hide")
+            }
+        }
+
+        $("#info_strength").show()
+    }
+
+    $.each(options, function (key, value) {
+        $el.append($("<option></option>").attr("value", value).text(key));
+    });
+
+};
+
+$("#select_major_fraction").change(change_strength);

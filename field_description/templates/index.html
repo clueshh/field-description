@@ -43,7 +43,7 @@
                     </div>
                 </div>
             </div>
-            <div class="form-group" id="form_behaviour" style="display: none;">
+            <div class="form-group" id="form_behaviour">
                 <div class="form-row">
                     <div class="col-sm-4 d-flex">
                         <div>Grain Size</div>
@@ -53,7 +53,7 @@
                         </div>
                     </div>
                     <div class="col-sm-8">
-                        <select class="form-control form-control-sm" id="select_behaviour">
+                        <select class="form-control form-control-sm" id="select_behaviour" disabled>
                             <option value=""></option>
                             <option value="fine">fine</option>
                             <option value="fine to medium">fine to medium</option>
@@ -69,7 +69,8 @@
                 <div class="form-row">
                     <div class="col-sm-4"></div>
                     <div class="col-sm-8">
-                        <a href="{{url_for('static', filename='img/grain size.png')}}" target="_blank"><img src="{{url_for('static', filename='img/grain size.png')}}" style="width: 100%;"></a>
+                        <a href="{{url_for('static', filename='img/grain size.png')}}" target="_blank"><img src="{{url_for('static', filename='img/grain size.png')}}"
+                                style="width: 100%;"></a>
                     </div>
                 </div>
             </div>
@@ -208,13 +209,13 @@
                     <div class="col-sm-8">
                         <select class="form-control form-control-sm" id="select_structure">
                             <option value=""></option>
-                            <option value="Homogeneous">Homogeneous</option>
-                            <option value="Bedding">Bedding</option>
-                            <option value="Fissured">Fissured</option>
-                            <option value="Polished">Polished</option>
-                            <option value="Slickensided">Slickensided</option>
-                            <option value="Blocky">Blocky</option>
-                            <option value="Lensoidal">Lensoidal</option>
+                            <option value="homogeneous">homogeneous</option>
+                            <option value="bedding">bedding</option>
+                            <option value="fissured">fissured</option>
+                            <option value="polished">polished</option>
+                            <option value="slickensided">slickensided</option>
+                            <option value="blocky">blocky</option>
+                            <option value="lensoidal">lensoidal</option>
                         </select>
                     </div>
                 </div>
@@ -274,20 +275,13 @@
                         <div>
                             Strength
                         </div>
-                        <div class="ml-auto">
-                            <i class="fa fa-info-circle" data-toggle="collapse" data-target="#strength-collapse"
-                                aria-hidden="true"></i>
+                        <div class="ml-auto" style="display: none" id="info_strength">
+                            <i class="fa fa-info-circle" data-toggle="collapse" data-target="#" aria-hidden="true" id="info_strength_collapse"></i>
                         </div>
                     </div>
                     <div class="col-sm-8">
-                        <select class="form-control form-control-sm" id="sel">
+                        <select class="form-control form-control-sm" id="select_strength1">
                             <option value=""></option>
-                            <option value="Very soft">Very soft</option>
-                            <option value="Soft">Soft</option>
-                            <option value="Firm">Firm</option>
-                            <option value="Stiff">Stiff</option>
-                            <option value="Very stiff">Very stiff</option>
-                            <option value="Hard">Hard</option>
                         </select>
                     </div>
                 </div>
@@ -333,29 +327,6 @@
                                 <td>Difficult to indent by thumb nail</td>
                             </tr>
                         </table>
-                    </div>
-                </div>
-            </div>
-            <div class="form-group">
-                <div class="form-row">
-                    <div class="col-sm-4 d-flex">
-                        <div>
-                            Strength
-                        </div>
-                        <div class="ml-auto">
-                            <i class="fa fa-info-circle" data-toggle="collapse" data-target="#strength2-collapse"
-                                aria-hidden="true"></i>
-                        </div>
-                    </div>
-                    <div class="col-sm-8">
-                        <select class="form-control form-control-sm">
-                            <option value=""></option>
-                            <option value="Very dense">Very dense</option>
-                            <option value="Dense">Dense</option>
-                            <option value="Medium dense">Medium dense</option>
-                            <option value="Loose">Loose</option>
-                            <option value="Very loose">Very loose</option>
-                        </select>
                     </div>
                 </div>
             </div>
@@ -716,7 +687,8 @@
                 <div class="form-row">
                     <div class="col-sm-4">Minor Fraction</div>
                     <div class="col-sm-8">
-                        <input class="form-control form-control-sm" type="text" id="input_minor_fraction" value="" readonly>
+                        <input class="form-control form-control-sm" type="text" id="input_minor_fraction" value=""
+                            readonly>
                     </div>
                 </div>
             </div>
@@ -728,6 +700,23 @@
                         <select class="form-control form-control-sm">
                             <option value=""></option>
                         </select>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="form-row">
+                    <div class="col-sm-4">Additional structures</div>
+                    <div class="col-sm-8">
+                        <input class="form-control form-control-sm" type="text" value="">
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="form-row">
+                    <div class="col-sm-4">Additional information</div>
+                    <div class="col-sm-8">
+                        <input class="form-control form-control-sm" type="text" value="">
                     </div>
                 </div>
             </div>

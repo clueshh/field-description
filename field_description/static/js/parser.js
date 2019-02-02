@@ -34,10 +34,11 @@ function parser() {
         if (subordinate_fraction) {
             section1.push(subordinate_fraction)
         }
+        if ((major_fraction == 'SAND' || major_fraction == 'GRAVEL') && grain_size) {
+            section1.push(grain_size)
+        }
+
         section1.push(major_fraction)
-    }
-    if ((major_fraction == 'SAND' || major_fraction == 'GRAVEL') && grain_size) {
-        section1.push(grain_size)
     }
 
     if (section1.length) {
@@ -72,7 +73,7 @@ function parser() {
 
         // section 4
         if (structure) {
-            section4.push(structure.toLowerCase())
+            section4.push(structure)
         }
 
         // joiner

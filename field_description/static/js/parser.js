@@ -4,7 +4,13 @@ function sentenceCase(str) {
     }).trim();
 }
 
-// main parser ofr output string
+function sentenceCase2(str){
+	var str = str.toLowerCase().replace(/\si\s/g, ' I ');
+	str = str.charAt(0).toUpperCase() + str.slice(1);
+	return str
+}
+
+// main parser for output string
 function parser() {
     var subordinate_fraction = $("#select_subordinate_fraction").find(":selected").text();
 
@@ -76,44 +82,138 @@ function parser() {
             section4.push(structure)
         }
 
-        // joiner
-        var jsection1 = section1.join(' ')
-        var jsection2 = section2.join(' ') 
-        if (section3.length && section3a.length){
-            var jsection3 = section3.join(' ') + ', ' + section3a.join(' ')
-        } else {
-            var jsection3 = section3.join(' ')
-        }
-        var jsection4 = section4.join(' ')
-
-        // compiler
-        if (section2.length) {
-            if (section3.length) {
-                if (section4.length) {
-                    var output = jsection1 + ' ' + jsection2 + "; " + jsection3 + ', ' + jsection4 + "."
-                } else {
-                    var output = jsection1 + ' ' + jsection2 + "; " + jsection3 + "."
-                }
-            } else if (section4.length) {
-                var output = jsection1 + ' ' + jsection2 + "; " + jsection4 + "."
-            } else {
-                var output = jsection1 + ' ' + jsection2 + "."
-            }
-        } else if (section3.length) {
-            if (section4.length){
-                var output = jsection1 + '; ' + jsection3 + ', ' + jsection4 + "."
-            } else {
-                var output = jsection1 + '; ' + jsection3 + "."
-            }
-        } else if (section4.length) {
-            var output = jsection1 + '; ' + jsection4 + "."
-        } else {
-            var output = jsection1 + "."
-        }
+        // join lists into sentence
+        var outputa = sentence_main_paragraph(section1, section2, section3, section3a, section4);
+        var outputb = sentence_qualifying_paragraph();
+        var output = outputa + ' ' + outputb
 
     } else {
         var output = ''
     }
 
+    sentence_qualifying_paragraph()
     return sentenceCase(output)
+};
+
+function sentence_main_paragraph(section1, section2, section3, section3a, section4) {
+    // joiner
+    var jsection1 = section1.join(' ');
+    var jsection2 = section2.join(' ');
+    if (section3.length && section3a.length) {
+        var jsection3 = section3.join(' ') + ', ' + section3a.join(' ');
+    }
+    else {
+        var jsection3 = section3.join(' ');
+    }
+    var jsection4 = section4.join(' ');
+
+    // compiler - ifs through each possibility
+    if (section2.length) {
+        if (section3.length) {
+            if (section4.length) {
+                var output = jsection1 + ' ' + jsection2 + "; " + jsection3 + ', ' + jsection4 + ".";
+            }
+            else {
+                var output = jsection1 + ' ' + jsection2 + "; " + jsection3 + ".";
+            }
+        }
+        else if (section4.length) {
+            var output = jsection1 + ' ' + jsection2 + "; " + jsection4 + ".";
+        }
+        else {
+            var output = jsection1 + ' ' + jsection2 + ".";
+        }
+    }
+    else if (section3.length) {
+        if (section4.length) {
+            var output = jsection1 + '; ' + jsection3 + ', ' + jsection4 + ".";
+        }
+        else {
+            var output = jsection1 + '; ' + jsection3 + ".";
+        }
+    }
+    else if (section4.length) {
+        var output = jsection1 + '; ' + jsection4 + ".";
+    }
+    else {
+        var output = jsection1 + ".";
+    }
+    return output;
+};
+
+
+function sentence_qualifying_paragraph() {
+    var strength = $("#select_strength1").find(":selected").text();
+    var moisture = $("#select_moisture").find(":selected").text();
+    var grading = $("#select_grading").find(":selected").text();
+    var bedding1 = $("#select_bedding1").find(":selected").text();
+    var bedding2 = $("#select_bedding2").find(":selected").text();
+    var plasticity = $("#select_plasticity").find(":selected").text();
+    var sensitivity = $("#select_sensitivity").find(":selected").text();
+    // ---------------------------------------------------------
+    var qmajor_fraction1 = $("#input_major_fraction").val();
+    var qmajor_fraction2 = $("#area_major_fraction").val()
+
+    var qsubordinate_fraction1 = $("#input_subordinate_fraction").val()
+    var qsubordinate_fraction2 = $("#area_subordinate_fraction").val()
+
+    var qminor_fraction1 = $("#input_minor_fraction").val()
+    var qminor_fraction2 = $("#area_minor_fraction").val()
+
+    var additional_structures = $("#additional_structures").val()
+    var additional_info = $("#additional_info").val()
+    // ---------------------------------------------------------
+
+    if (bedding1 && bedding2){
+        var bedding = `bedding, ${bedding1}, ${bedding2}`
+    } else {
+        var bedding = ''
+    }
+
+    if (qmajor_fraction1 && qmajor_fraction2){
+        var qmajor_fraction = `${qmajor_fraction2} ${qmajor_fraction1}`
+    } else {
+        var qmajor_fraction = ''
+    }
+
+    if (qsubordinate_fraction1 && qsubordinate_fraction2){
+        var qsubordinate_fraction = `${qsubordinate_fraction1}, ${qsubordinate_fraction2}`
+    } else {
+        var qsubordinate_fraction = ''
+    }
+
+    if (qminor_fraction1 && qminor_fraction2){
+        var qminor_fraction = `${qminor_fraction1}, ${qminor_fraction2}`
+    } else {
+        var qminor_fraction = ''
+    }
+
+    if (additional_info){
+        additional_info = "(" + additional_info.toUpperCase() + ")"
+    }
+
+    // ---------------------------------------------------------
+    var list = [strength, moisture, grading, bedding, plasticity, sensitivity, qmajor_fraction, qsubordinate_fraction, qminor_fraction, additional_structures]
+    var section = []
+
+    for (var i in list) {
+        var val = list[i]
+
+        if (val){
+            section.push(list[i])
+        }
+    }
+
+    if (section.length) {
+        var join = sentenceCase2(section.join('; '))
+        if (additional_info){
+            return join + ' ' + additional_info + '.'
+        } else{
+            return join + '.'
+        }
+        
+    } else {
+        return ''
+    }
+    
 };

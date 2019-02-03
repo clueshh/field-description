@@ -6,18 +6,18 @@ body {
   min-height: 100%;
 }
 
-.table-condensed{
+.table-condensed {
   font-size: 0.8rem;
 }
 
-.asterisk{
-  font-size: 50%; 
-  vertical-align: top; 
+.asterisk {
+  font-size: 50%;
+  vertical-align: top;
   color: Salmon
 }
 
-.plus, .minus{
-  font-size: 80%; 
+.plus, .minus {
+  font-size: 80%;
 }
 
 i#minor_fraction_plus {
@@ -26,4 +26,15 @@ i#minor_fraction_plus {
 
 button.btn.btn-light.btn-sm {
   border: 1px solid #ced4da
+}
+
+#additional_info {
+  text-transform: uppercase;
+}
+
+textarea {
+  resize: vertical;
+  max-height: 200px;
+  min-height: 31px;
+  padding-left: 10px;
 }

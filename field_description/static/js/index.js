@@ -68,9 +68,17 @@ $("#recalc").click(function () {
     update()
 });
 
-// function to update textarea
+// function to reset form
 function reset() {
+    // removes all values from form
     $(".form-control").val('');
+
+    // resets fields to disabled
+    $("#select_behaviour").prop('disabled', true)
+    $("#select_grading").prop('disabled', true)
+    $("#select_plasticity").prop('disabled', true)
+    
+    change_strength()
 };
 
 // recalc button update

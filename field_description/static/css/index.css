@@ -24,6 +24,22 @@ button.btn.btn-light.btn-sm {
   text-transform: uppercase;
 }
 
+#area_major_fraction {
+  text-transform: lowercase;
+}
+
+#additional_structures{
+  text-transform: lowercase;
+}
+
+#area_subordinate_fraction {
+  text-transform: lowercase;
+}
+
+#area_minor_fraction{
+  text-transform: lowercase;
+}
+
 textarea {
   resize: vertical;
   max-height: 200px;

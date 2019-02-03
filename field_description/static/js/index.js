@@ -47,7 +47,7 @@ $("#select_subordinate_fraction").change(function () {
 // change minor qualifing paragraph
 function change_minor() {
     var minor_fraction1 = $('#select_minor_fraction1').val();
-    $("#input_minor_fraction").val(minor_fraction1)
+    $("#input_minor_fraction").val(minor_fraction1.toLowerCase())
 };
 
 // function to update textarea

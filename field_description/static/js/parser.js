@@ -57,7 +57,7 @@ function parser() {
                 section2.push('with minor')
             }
             if (minor_fraction1) {
-                section2.push(minor_fraction1)
+                section2.push(minor_fraction1.toLowerCase())
             }
         }
 

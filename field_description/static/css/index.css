@@ -28,7 +28,7 @@ button.btn.btn-light.btn-sm {
   text-transform: lowercase;
 }
 
-#additional_structures{
+#additional_structures {
   text-transform: lowercase;
 }
 
@@ -36,7 +36,7 @@ button.btn.btn-light.btn-sm {
   text-transform: lowercase;
 }
 
-#area_minor_fraction{
+#area_minor_fraction {
   text-transform: lowercase;
 }
 
@@ -48,6 +48,7 @@ textarea {
 }
 
 /* fraction */
+
 .frac {
   display: inline-block;
   position: relative;
@@ -55,24 +56,27 @@ textarea {
   letter-spacing: 0.001em;
   text-align: center;
 }
-.frac > span {
+
+.frac>span {
   display: block;
   padding: 0.1em;
 }
+
 .frac span.bottom {
   border-top: thin solid black;
 }
+
 .frac span.symbol {
   display: none;
-} 
-
-input[type="number"]::-webkit-outer-spin-button,
-input[type="number"]::-webkit-inner-spin-button {
-    -webkit-appearance: none;
-    margin: 0;
 }
+
+input[type="number"]::-webkit-outer-spin-button, input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
 input[type="number"] {
-    -moz-appearance: textfield;
+  -moz-appearance: textfield;
 }
 
 .form-control.form-control-sm.is-invalid {

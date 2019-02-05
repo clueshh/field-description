@@ -77,7 +77,7 @@ function reset() {
     $("#select_behaviour").prop('disabled', true)
     $("#select_grading").prop('disabled', true)
     $("#select_plasticity").prop('disabled', true)
-    
+
     change_strength()
 };
 
@@ -147,11 +147,126 @@ function change_strength() {
 $("#select_major_fraction").change(change_strength);
 
 // disable newline in text area
-$("textarea").keydown(function(e){
+$("textarea").keydown(function (e) {
     // Enter was pressed without shift key
-    if (e.keyCode == 13 && !e.shiftKey)
-    {
+    if (e.keyCode == 13 && !e.shiftKey) {
         // prevent default behavior
         e.preventDefault();
     }
+});
+
+function update_table(from, to, description) {
+    // remove placeholder row if exists
+    if($("#tr-placeholder").length != 0) {
+        $("#tr-placeholder").remove()
+    }
+
+    var fdepth_from = Number(from).toFixed(2)
+    var fdepth_to = Number(to).toFixed(2)
+
+    var depth = `${fdepth_from} - ${fdepth_to}`
+
+    $('#auger_log_table').append(`<tr><td>${depth}</td><td>${description}</td></tr>`);
+}
+
+function maxdepth_update(depth) {
+    var maxdepth = Number(sessionStorage.getItem("maxdepth"))
+    var depthN = Number(depth)
+
+    if (depthN > maxdepth){
+        sessionStorage.setItem('maxdepth', depth)
+        return true
+    } else {
+        return false
+    }
+}
+
+
+$(document).ready(function() {
+    sessionStorage.setItem('maxdepth', '0')
+
+    // Reset form
+    $("#detailsForm").trigger("reset");
+
+    // initiate form validation
+    $('#detailsForm').validate({
+        errorClass: 'is-invalid',
+
+        rules: {
+            depth_from: {
+                required: true,
+                number: true,
+                range: [0, 0]
+            },
+            depth_to: {
+                required: true,
+                number: true,
+                min: 0
+            },
+            auger_name: {
+                required: true,
+            },
+            select_major_fraction: {
+                required: true,
+            },
+        },
+
+        messages:{
+            depth_from: {
+                range: "Value must be equal to {0}."
+            }
+        },
+
+        errorPlacement: function(error, element) {
+            error.addClass("invalid-feedback"); // add invalid class
+            error.insertAfter(element)
+        },
+
+        submitHandler: function (form) {
+            var depth_from = $('#depth_from').val()
+            var depth_to = $('#depth_to').val()
+            var description = $('#output').val()
+
+            maxdepth_update(depth_to);
+            update_table(depth_from, depth_to, description)
+
+            depth_from_update()
+            depth_to_update()
+
+            $("#depth_to").val('')
+            $("#depth_from").val(depth_to)
+            return false;
+        }
     });
+});
+
+$("#depth_to").change(depth_to_update);
+$("#depth_from").change(depth_from_update);
+
+
+function depth_to_update(){
+    $("#depth_to").rules('remove')
+
+    var add = {
+        required: true,
+        number: true,
+        min: Number(sessionStorage.getItem("maxdepth"))
+    }
+
+    $("#depth_to").rules('add', add)
+}
+
+
+function depth_from_update(){
+    $("#depth_from").rules('remove')
+
+    var max = sessionStorage.getItem("maxdepth")
+
+    var add = {
+        required: true,
+        number: true,
+        range: [max, max]
+    }
+
+    $("#depth_from").rules('add', add)
+}

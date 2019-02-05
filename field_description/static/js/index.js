@@ -69,7 +69,7 @@ $("#recalc").click(function () {
 });
 
 // function to reset form
-function reset() {
+function reset_form() {
     // removes all values from form
     $(".form-control").val('');
 
@@ -83,7 +83,7 @@ function reset() {
 
 // recalc button update
 $("#reset").click(function () {
-    reset()
+    reset_form()
 });
 
 // change Strength box
@@ -227,6 +227,8 @@ $(document).ready(function() {
             var depth_to = $('#depth_to').val()
             var description = $('#output').val()
 
+            reset_form()
+
             maxdepth_update(depth_to);
             update_table(depth_from, depth_to, description)
 
@@ -244,6 +246,7 @@ $("#depth_to").change(depth_to_update);
 $("#depth_from").change(depth_from_update);
 
 
+// functions to update validation rules on change
 function depth_to_update(){
     $("#depth_to").rules('remove')
 
@@ -255,7 +258,6 @@ function depth_to_update(){
 
     $("#depth_to").rules('add', add)
 }
-
 
 function depth_from_update(){
     $("#depth_from").rules('remove')
@@ -270,3 +272,12 @@ function depth_from_update(){
 
     $("#depth_from").rules('add', add)
 }
+
+
+$('#depth_from, #depth_to').blur(function () {
+    var num = parseFloat($(this).val());
+    if ($.isNumeric(num)){
+        var cleanNum = num.toFixed(2);
+        $(this).val(cleanNum);
+    }
+});

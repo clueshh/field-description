@@ -7,11 +7,13 @@ body {
 }
 
 /* style for smaller tables */
+
 .table-condensed {
   font-size: 0.8rem;
 }
 
 /* aligns required fields top right */
+
 .asterisk {
   font-size: 50%;
   vertical-align: top;
@@ -19,11 +21,13 @@ body {
 }
 
 /* border for buttons */
+
 button.btn.btn-light.btn-sm {
   border: 1px solid #ced4da
 }
 
 /* ------------text transforms------------- */
+
 #additional_info {
   text-transform: uppercase;
 }
@@ -43,9 +47,11 @@ button.btn.btn-light.btn-sm {
 #area_minor_fraction {
   text-transform: lowercase;
 }
+
 /*============================================ */
 
 /* formatting for text area */
+
 textarea {
   resize: vertical;
   max-height: 200px;
@@ -54,6 +60,7 @@ textarea {
 }
 
 /* displays fraction */
+
 .frac {
   display: inline-block;
   position: relative;
@@ -74,6 +81,7 @@ textarea {
 .frac span.symbol {
   display: none;
 }
+
 /* ==================================== */
 
 /* removes up and down arrows from number field */
@@ -91,8 +99,27 @@ input[type="number"] {
   background-image: none
 }
 
+.bootstrap-iso .formden_header h2, .bootstrap-iso .formden_header p, .bootstrap-iso form {
+  font-family: Arial, Helvetica, sans-serif;
+  color: black
+}
+
+.bootstrap-iso form button, .bootstrap-iso form button:hover {
+  color: white !important;
+}
+
+/* change glow color */
+.form-control:focus {
+  color: #495057 !important;
+  background-color: #fff !important;
+  border-color: #ffb3b3 !important;
+  outline: 0 !important;
+  -webkit-box-shadow: 0 0 0 0.2rem rgba(255,51,51,.25) !important;
+  box-shadow: 0 0 0 0.2rem rgba(255,51,51,.25) !important;
+}
+
 @media (max-width: 575px) {
-  .py-xs-3{
+  .py-xs-3 {
     padding-bottom: 15px
   }
 }

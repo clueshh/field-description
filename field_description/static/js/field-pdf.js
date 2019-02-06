@@ -9,4 +9,18 @@ $(document).ready(function () {
     }
 
     PDFObject.embed("../static/pdf/" + name, "#pdf_container")
+    pdfHeight()
 });
+
+$(window).resize(function() {
+    pdfHeight()
+});
+
+function pdfHeight() {
+    var navheight = $('.navbar').outerHeight()
+    var viewportHeight = $(window).height();
+
+    var pdfHeight = viewportHeight-navheight
+
+    $('.pdfobject-container').css("height", pdfHeight)
+}

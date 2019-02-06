@@ -205,11 +205,14 @@ function maxdepth_update(depth) {
 }
 
 $(document).ready(function () {
-    sessionStorage.setItem('maxdepth', '0')
+    // enable tooltips
+    $('[data-toggle="tooltip"]').tooltip()
 
     // Reset form on refresh
     $("#detailsForm").trigger("reset");
 
+    // global variable for form
+    sessionStorage.setItem('maxdepth', '0')
     // initiate form validation
     $('#detailsForm').validate({
         errorClass: 'is-invalid',

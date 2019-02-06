@@ -84,7 +84,7 @@ function parser() {
 
         // join lists into sentence
         var outputa = sentence_main_paragraph(section1, section2, section3, section3a, section4);
-        var outputb = sentence_qualifying_paragraph();
+        var outputb = sentence_qualifying_paragraph(major_fraction);
         var output = outputa + ' ' + outputb
 
     } else {
@@ -142,7 +142,7 @@ function sentence_main_paragraph(section1, section2, section3, section3a, sectio
 };
 
 
-function sentence_qualifying_paragraph() {
+function sentence_qualifying_paragraph(major_fraction) {
     var strength = $("#select_strength1").find(":selected").text();
     var moisture = $("#select_moisture").find(":selected").text();
     var grading = $("#select_grading").find(":selected").text();
@@ -192,6 +192,12 @@ function sentence_qualifying_paragraph() {
         additional_info = "(" + additional_info.toUpperCase() + ")"
     }
 
+    if (major_fraction == 'SAND' || major_fraction == 'GRAVEL'){
+        punct = '; '
+    } else {
+        punct = ', '
+    }
+
     // ---------------------------------------------------------
     var list = [strength, moisture, grading, bedding, plasticity, sensitivity, qmajor_fraction, qsubordinate_fraction, qminor_fraction, additional_structures]
     var section = []
@@ -205,7 +211,7 @@ function sentence_qualifying_paragraph() {
     }
 
     if (section.length) {
-        var join = sentenceCase2(section.join('; '))
+        var join = sentenceCase2(section.join(punct))
         if (additional_info){
             return join + ' ' + additional_info + '.'
         } else{

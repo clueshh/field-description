@@ -6,20 +6,24 @@ body {
   min-height: 100%;
 }
 
+/* style for smaller tables */
 .table-condensed {
   font-size: 0.8rem;
 }
 
+/* aligns required fields top right */
 .asterisk {
   font-size: 50%;
   vertical-align: top;
   color: Salmon
 }
 
+/* border for buttons */
 button.btn.btn-light.btn-sm {
   border: 1px solid #ced4da
 }
 
+/* ------------text transforms------------- */
 #additional_info {
   text-transform: uppercase;
 }
@@ -39,7 +43,9 @@ button.btn.btn-light.btn-sm {
 #area_minor_fraction {
   text-transform: lowercase;
 }
+/*============================================ */
 
+/* formatting for text area */
 textarea {
   resize: vertical;
   max-height: 200px;
@@ -47,8 +53,7 @@ textarea {
   padding-left: 10px;
 }
 
-/* fraction */
-
+/* displays fraction */
 .frac {
   display: inline-block;
   position: relative;
@@ -69,7 +74,9 @@ textarea {
 .frac span.symbol {
   display: none;
 }
+/* ==================================== */
 
+/* removes up and down arrows from number field */
 input[type="number"]::-webkit-outer-spin-button, input[type="number"]::-webkit-inner-spin-button {
   -webkit-appearance: none;
   margin: 0;
@@ -79,6 +86,13 @@ input[type="number"] {
   -moz-appearance: textfield;
 }
 
+/* removes red x from invalid field */
 .form-control.form-control-sm.is-invalid {
   background-image: none
+}
+
+@media (max-width: 575px) {
+  .py-xs-3{
+    padding-bottom: 15px
+  }
 }

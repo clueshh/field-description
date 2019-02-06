@@ -9,7 +9,7 @@
 {% block body %}
 <div class="container py-3">
     <form id="detailsForm">
-        <div class="row">
+        <div class="row" id="div_details">
             <div class="col-sm-6">
 
                 <div class="row">
@@ -20,9 +20,18 @@
 
                 <div class="form-group">
                     <div class="form-row">
-                        <div class="col-sm-4">Name/Location <i class="fas fa-asterisk asterisk"></i></div>
+                        <div class="col-sm-4">Site Name/Location <i class="fas fa-asterisk asterisk"></i></div>
                         <div class="col-sm-8">
-                            <input type="text" maxlength="40" class="form-control form-control-sm" id="auger_name" name="auger_name"
+                            <input type="text" placeholder="6 Ossian St, Napier" maxlength="40" class="form-control form-control-sm" id="site_name" name="site_name" required>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="form-row">
+                        <div class="col-sm-4">Auger Name/Location <i class="fas fa-asterisk asterisk"></i></div>
+                        <div class="col-sm-8">
+                            <input type="text" placeholder="Auger 1" maxlength="40" class="form-control form-control-sm" id="auger_name" name="auger_name"
                                 required>
                         </div>
                     </div>
@@ -31,12 +40,11 @@
                 <div class="form-group">
                     <div class="form-row">
                         <div class="col-sm-4">Depth (From - To) <i class="fas fa-asterisk asterisk"></i></div>
-                        <div class="col-sm-4">
-                            <input type="number" class="form-control form-control-sm" id="depth_from" name="depth_from"
-                                required>
+                        <div class="col-sm-4 py-xs-3">
+                            <input type="number" placeholder="0.00" class="form-control form-control-sm" id="depth_from" name="depth_from" value="0.00" required>
                         </div>
                         <div class="col-sm-4">
-                            <input type="number" class="form-control form-control-sm" id="depth_to" name="depth_to"
+                            <input type="number"  placeholder="0.50" class="form-control form-control-sm" id="depth_to" name="depth_to"
                                 required>
                         </div>
                     </div>
@@ -49,6 +57,13 @@
                     <div class="col">
                         <p class="lead">Auger Log</p>
                     </div>
+
+                    <div class="col">
+                        <div class="form-group float-right">
+                            <button type="button" class="btn btn-light btn-sm" id="save">Save</button>
+                            <button type="button" class="btn btn-light btn-sm" id="reset">Reset</button>
+                        </div>
+                    </div>
                 </div>
 
                 <div class="table-responsive-sm">
@@ -59,7 +74,7 @@
                                 <th>Description</th>
                             </tr>
                             <tr id="tr-placeholder">
-                                <td colspan="3">&nbsp;</td>
+                                <td colspan="2">&nbsp;</td>
                             </tr>
                         </tbody>
                     </table>
@@ -67,8 +82,8 @@
             </div>
         </div>
         <hr>
-        <div class="row">
-            <div class="col-sm-6" name="reset">
+        <div class="row" id="div_paragraph">
+            <div class="col-sm-6">
                 <div class="row">
                     <div class="col">
                         <p class="lead">Main paragraph</p>
@@ -129,7 +144,7 @@
                         <div class="col-sm-4"></div>
                         <div class="col-sm-8">
                             <a href="{{url_for('static', filename='img/grain size.png')}}" target="_blank"><img src="{{url_for('static', filename='img/grain size.png')}}"
-                                    style="width: 100%;"></a>
+                                    style="width: 100%;" alt="grain size.png"></a>
                         </div>
                     </div>
                 </div>
@@ -328,7 +343,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-sm-6" name="reset">
+            <div class="col-sm-6">
                 <div class="row">
                     <div class="col">
                         <p class="lead">Qualifying Paragraph</p>
@@ -827,26 +842,23 @@
         </div>
         <hr>
         <div class="row">
-            <div class="col">
+            <div class="col-1">
                 <p class="lead">Output</p>
             </div>
-            <div class="col">
+            <div class="col-11">
                 <div class="form-group float-right">
                     <div class="btn-group" role="group">
                         <button type="button" class="btn btn-light btn-sm" id="recalc">Recalculate</button>
-                        <button type="button" class="btn btn-light btn-sm" id="reset">Reset</button>
+                        <button type="button" class="btn btn-light btn-sm" id="clear">Clear</button>
                     </div>
                     <div class="btn-group" role="group">
                         <button type="submit" class="btn btn-light btn-sm" id="add" form="detailsForm">Add</button>
-                        <button type="button" class="btn btn-light btn-sm" id="save">Save</button>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="div_output">
-            <div class="form-group">
-                <textarea class="form-control form-control-sm" rows="5" id="output" spellcheck="false"></textarea>
-            </div>
+        <div class="form-group">
+            <textarea class="form-control form-control-sm" rows="5" id="output" spellcheck="false"></textarea>
         </div>
     </form>
 </div>
@@ -854,7 +866,7 @@
 {% endblock %}
 
 {% block script %}
-<script type="text/javascript" src="{{url_for('static',filename='js/parser.js')}}"></script>
-<script type="text/javascript" src="{{url_for('static',filename='js/index.js')}}"></script>
-<script type="text/javascript" src="{{url_for('static',filename='vendor/jquery/jquery.validate.min.js')}}"></script>
+<script src="{{url_for('static',filename='js/parser.js')}}"></script>
+<script src="{{url_for('static',filename='js/index.js')}}"></script>
+<script src="{{url_for('static',filename='vendor/jquery/jquery.validate.min.js')}}"></script>
 {% endblock %}

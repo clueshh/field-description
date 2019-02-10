@@ -1,7 +1,8 @@
 # field-description
 
-Flask web application to converting geotechnical soil descriptions to NZGS descriptions
+Flask web application to format geotechnical soil descriptions to the [NZGS](http://www.nzgs.org/) guidelines
 
+## Demo
 https://field-description.herokuapp.com/
 
 ## Installation

@@ -108,16 +108,7 @@ input[type="number"] {
   color: white !important;
 }
 
-/* change glow color */
-.form-control:focus {
-  color: #495057 !important;
-  background-color: #fff !important;
-  border-color: #ffb3b3 !important;
-  outline: 0 !important;
-  -webkit-box-shadow: 0 0 0 0.2rem rgba(255,51,51,.25) !important;
-  box-shadow: 0 0 0 0.2rem rgba(255,51,51,.25) !important;
-}
-
+/* spacing between form inputs */
 @media (max-width: 575px) {
   .py-xs-3 {
     padding-bottom: 15px

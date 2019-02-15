@@ -1,0 +1,48 @@
+{% extends "layout.html" %}
+
+{% block css %}
+<link rel="stylesheet" type="text/css" href="{{url_for('static', filename='css/join.css')}}">
+{% endblock %}
+
+{% block body %}
+
+<div class="container py-3">
+    <div class="row justify-content-md-center">
+
+        <div class="col-sm-4">
+            <div class="py-3 center"><img src="{{url_for('static', filename='img/logo_circle.png')}}" width="50" height="50" class="mx-auto d-block" alt=""></div>
+            <div class="text-center">
+                <p class="lead">Create field-description account</p>
+            </div>
+
+            <form id="joinForm" method="post">
+                <div class="form-group">
+                    <label for="name">Name</label>
+                    <input type="text" class="form-control form-control-sm" id="name" name="name" maxlength="64" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" class="form-control form-control-sm" id="email" name="email" maxlength="120" autocomplete="username email" required>
+                </div>
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" class="form-control form-control-sm" id="password" name="password" autocomplete="current-password" required>
+                </div>
+                <div class="form-group">
+                    <button type="submit" for="joinForm" class="btn btn-sm btn-block btn-light">Create Account</button>
+                </div>
+            </form>
+
+            <div class="center"><small class="text-muted">Already have an account? <a href="/login">Login</a></small></div>
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}
+
+{% block script %}
+<script src="{{url_for('static',filename='js/join.js')}}"></script>
+<script src="{{url_for('static',filename='vendor/jquery/jquery.validate.min.js')}}"></script>
+{% endblock %}

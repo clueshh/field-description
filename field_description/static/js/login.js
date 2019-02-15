@@ -27,7 +27,7 @@ $(document).ready(function () {
                         $(errmsg).insertAfter("#email");
                     } else if (data.response == "incorrect password") {
                         $("#password").addClass("is-invalid");
-                        var errmsg = '<label id="email-error" class="is-invalid invalid-feedback" for="email">Incorrect Password.</label>'
+                        var errmsg = '<label id="password-error" class="is-invalid invalid-feedback" for="email">Incorrect Password.</label>'
                         $(errmsg).insertAfter("#password");
                     } else {
                         var url = window.location.origin

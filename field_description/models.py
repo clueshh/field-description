@@ -1,11 +1,6 @@
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask_login import UserMixin
-from field_description import login, db
-
-
-@login.user_loader
-def load_user(id):
-    return User.query.get(int(id))
+from field_description import db
 
 
 class User(UserMixin, db.Model):

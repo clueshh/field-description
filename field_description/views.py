@@ -46,7 +46,7 @@ def login():
         elif not user.check_password(password):
             return json.dumps({'response': 'incorrect password'}), 200, {'ContentType': 'application/json'}
         else:
-            login_user(user)
+            login_user(user, remember=True)
             return json.dumps({'response': 'success'}), 200, {'ContentType': 'application/json'}
 
     elif request.method == 'GET':
@@ -70,7 +70,7 @@ def join():
             user = User(name, email, password)
             db.session.add(user)
             db.session.commit()
-            login_user(user)
+            login_user(user, remember=True)
 
             return json.dumps({'response': 'success'}), 200, {'ContentType': 'application/json'}
         else:

@@ -5,7 +5,7 @@ from flask_login import LoginManager
 
 # Initiate Flask
 app = Flask(__name__)
-# sslify = SSLify(app)
+sslify = SSLify(app)
 app.config.from_object('config.HerokuConfig')
 
 # initialize the database connection

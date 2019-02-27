@@ -23,9 +23,15 @@ $(document).ready(function () {
                 dataType: "json",
                 success: function (data) {
                     if (data.response == "email already exists") {
-                        $("#email").addClass("is-invalid");
-                        var errmsg = '<label id="email-error" class="is-invalid invalid-feedback" for="email">Email already exists.</label>'
-                        $(errmsg).insertAfter("#email");
+                        if ($("#email-error").length ) {
+                            $("#email").addClass("is-invalid");
+                            $("#email-error").text("Email already exists.")
+                            $("#email-error").show()
+                        } else{
+                            $("#email").addClass("is-invalid");
+                            var errmsg = '<label id="email-error" class="is-invalid invalid-feedback" for="email">Email already exists.</label>'
+                            $(errmsg).insertAfter("#email");
+                        }
                     } else {
                         var url = window.location.origin
                         window.location.replace(url);
